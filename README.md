@@ -19,7 +19,7 @@
 13. run this command $pip freeze > requirements.txt fro generating requirements.txt which includes all imports files
 14. run $pip install -r requirements.txt to install required import files to run this application
 15. Go to your browser and write the this url:http://localhost:5000/catalog/
-16. Go to this url http://localhost:5000/catalog.json
+16. Go to this url http://localhost:5000/catalog.json to view database in JSON format
 
 
 
