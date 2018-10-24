@@ -1,0 +1,23 @@
+	<div class="row divider blue">
+		<div class="col-md-12"></div>
+	</div>
+	<div class="row banner main">
+		<div class="col-md-1"></div><br>
+<div class="" style="float: right;">
+					{%if 'username' not in session %}
+			<a href="{{url_for('showLogin')}}">
+				<button class="btn btn-default" >
+					Login
+				</button>
+			</a>
+			{% else %}
+			<a href="{{url_for('disconnect')}}">
+				<button class="btn btn-default"  >
+					Logout
+				</button>
+			 </a>
+			{% endif %}
+
+	</div>
+
+</div>

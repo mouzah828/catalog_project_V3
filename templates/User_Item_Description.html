@@ -1,0 +1,14 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+
+		<div class="row">
+							<div class="menu-item">
+								<strong><h1>{{items.name}}</h1></strong>
+								<p ><strong>Description:</strong>{{items.description}}</p>
+								<a href='{{url_for('editCategoryItem', games_category_name = Category.name, games_item_name=items.name ) }}'>Edit</a> |
+								<a href='{{url_for('deleteCategoryItem', games_category_name = Category.name, games_item_name=items.name ) }}'>Delete</a>
+							</div>
+			<div class="col-md-1"></div>
+		</div>
+{% endblock %}

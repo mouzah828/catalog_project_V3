@@ -1,0 +1,64 @@
+<script>
+	function update_ifram(src_url){//alert (file);
+		document.getElementById('frame').src=src_url;
+		document.getElementById('Latest_items_div').style.display='none';
+	}
+</script>
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+
+<div class = 'flash'>
+		      {% with messages = get_flashed_messages() %}
+      {% if messages %}
+
+        <ul>
+        {% for message in messages %}
+            <li> <strong> {{ message }} </strong> </li>
+        {% endfor %}
+        </ul>
+        {% endif %}
+    {% endwith %}
+
+</div>
+
+	<div class="row padding-top padding-bottom">
+		<div class="col-md-1"></div>
+		<div class="col-md-10 padding-none">
+
+		</div>
+		<div class="col-md-1"></div>
+	</div>
+<div style="display: flex">
+    <div style="width:30%; border:solid" >
+    		<h2>Video Games categories</h2>
+    	{% for games_category in  Categorys %}
+    				<a onclick="update_ifram('{{url_for('showMenu', games_category_id = games_category.id)}}');" href = "#">
+						<div class="row">
+							<div class="col-md-1"></div>
+								<div class="col-md-10 restaurant-list">
+									<h3>{{games_category.name}}</h3>
+								</div>
+									<div class="col-md-1"></div>
+						</div>
+					</a>
+					{% endfor %}
+	</div>
+<div style="width:70%; border:solid">
+	{% if items !=[] %}
+		<div id="Latest_items_div">
+			<a href="{{url_for('newCategory')}}">
+				<button class="btn btn-default" id="new-restaurant">
+					Add New Video Games Category
+				</button>
+			</a>
+				<h2>Latest items</h2>
+					{% for i in items %}
+								<strong>{{i.name}}</strong>({{i.games_category.name}})
+								<br>
+					{% endfor %}
+		</div>
+	{% endif %}
+  	<iframe id="frame" width="100%" height="1500" src="" scrolling="auto" align="middle" frameborder="0"></iframe></div>
+</div>
+{% endblock %}
